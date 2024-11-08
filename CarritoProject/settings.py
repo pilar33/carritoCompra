@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'CarritoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'restauranteryr', #'bdnzqvijsum929kbagyw',
-        'USER': 'root',#'uaglois5ophr2fxg',
-        'PASSWORD': '',#'1LugfTVZsSzC2KIvVYkI',
-        'SERVER': 'localhost',
-        #'HOST': 'bdnzqvijsum929kbagyw-mysql.services.clever-cloud.com',
+        'NAME': 'bdnzqvijsum929kbagyw', #'restauranteryr', 
+        'USER': 'uaglois5ophr2fxg', #'root'
+        'PASSWORD': '1LugfTVZsSzC2KIvVYkI', #'',
+        #'SERVER': 'localhost',
+        'HOST': 'bdnzqvijsum929kbagyw-mysql.services.clever-cloud.com',
         'PORT': '3306',
         # 'OPTIONS': {
         #     'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
