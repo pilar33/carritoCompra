@@ -48,7 +48,22 @@
                     { "data": "iidcliente" },
                     { "data": "snombrecliente" },
                     { "data": "sapellidocliente" },
-                    { "data": "idni" }//,
+                    { "data": "idni" },
+                    {
+                        "data": null, // Esto es para que tome la fila completa y te permita personalizar el contenido
+                        "render": function(data, type, row) {
+                            // Aquí creamos la URL manualmente usando JavaScript
+                            var editUrl = "{% url 'clientes_edit' 0 %}".replace('0', row.iidcliente);
+                            var deleteUrl = "{% url 'clientes_delete' 0 %}".replace('0', row.iidcliente);
+                            
+                            return `
+                                <button class="btn btn-info edit-btn" data-url="${editUrl}">Editar</button>
+                                <button class="btn btn-danger delete-btn" data-url="${deleteUrl}">Eliminar</button>
+                            `;
+                        },
+                        "orderable": false, // Opcional: para que esta columna no sea ordenable
+                        "searchable": false // Opcional: para que esta columna no se pueda buscar
+                    }
 
                   
 

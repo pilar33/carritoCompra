@@ -54,10 +54,10 @@
                             var editUrl = "{% url 'sucursales_edit' 0 %}".replace('0', row.iidsucursal);
                             var deleteUrl = "{% url 'sucursales_delete' 0 %}".replace('0', row.iidsucursal);
                             
-                            // return `
-                            //     <button class="editClienteBtn" data-url="` + editUrl + `">Editar</button>
-                            //     <button class="deleteClienteBtn" data-url="` + deleteUrl + `">Eliminar</button>
-                            // `;
+                            return `
+                                <button class="btn btn-info edit-btn" data-url="${editUrl}">Editar</button>
+                                <button class="btn btn-danger delete-btn" data-url="${deleteUrl}">Eliminar</button>
+                            `;
                         },
                         "orderable": false, // Opcional: para que esta columna no sea ordenable
                         "searchable": false // Opcional: para que esta columna no se pueda buscar
