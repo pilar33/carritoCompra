@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os, inspect
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +24,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-y&&gn^cr4e($^c100m%xpx%dh8=@_8^b9h2v79t0^8)m1gufy('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
+# usando variables de entorno de clever cloud
+# Configuración de DEBUG
+DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+
+# Configuración de ALLOWED_HOSTS
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
@@ -91,19 +98,24 @@ WSGI_APPLICATION = 'CarritoProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'bdnzqvijsum929kbagyw', #'restauranteryr', 
+#         'USER': 'uaglois5ophr2fxg', #'root'
+#         'PASSWORD': '1LugfTVZsSzC2KIvVYkI', #'',
+#         #'SERVER': 'localhost',
+#         'HOST': 'bdnzqvijsum929kbagyw-mysql.services.clever-cloud.com',
+#         'PORT': '3306',
+#         # 'OPTIONS': {
+#         #     'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
+#         # },
+#     }
+# }
+
+# Configuración de la base de datos usando DATABASE_URL del entorno de clever cloud
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bdnzqvijsum929kbagyw', #'restauranteryr', 
-        'USER': 'uaglois5ophr2fxg', #'root'
-        'PASSWORD': '1LugfTVZsSzC2KIvVYkI', #'',
-        #'SERVER': 'localhost',
-        'HOST': 'bdnzqvijsum929kbagyw-mysql.services.clever-cloud.com',
-        'PORT': '3306',
-        # 'OPTIONS': {
-        #     'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
-        # },
-    }
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
 

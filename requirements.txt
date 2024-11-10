@@ -11,6 +11,7 @@ crispy-bootstrap5==0.7
 cryptography==41.0.5
 cssselect2==0.7.0
 cycler==0.12.1
+dj-database-url==2.3.0
 Django==4.2.6
 django-adminlte3==0.1.6
 django-bootstrap5==23.3
