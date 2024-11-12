@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-y&&gn^cr4e($^c100m%xpx%dh8=@_8^b9h2v79t0^8)m1gufy(
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Configuración de ALLOWED_HOSTS
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "nombreapp.cleverapps.io").split(",")
 
 # Application definition
 
