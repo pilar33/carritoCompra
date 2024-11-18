@@ -181,9 +181,9 @@ STATICFILES_DIRS = [
     Path(BASE_DIR) / "static",  # Directorio de archivos estáticos del proyecto principal
 ]
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_ROOT = '/app/staticfiles'
+# STATIC_ROOT = '/app/staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
