@@ -183,9 +183,9 @@ STATICFILES_DIRS = [
 #local
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #server y local
-STATIC_ROOT = os.getenv('DJANGO_STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
+# STATIC_ROOT = os.getenv('DJANGO_STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
 
-# STATIC_ROOT = '/app/staticfiles'
+STATIC_ROOT = '/app/static'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
