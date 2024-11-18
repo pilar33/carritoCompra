@@ -180,8 +180,10 @@ STATIC_URL = '/static/' # La URL raíz para servir archivos estáticos
 STATICFILES_DIRS = [
     Path(BASE_DIR) / "static",  # Directorio de archivos estáticos del proyecto principal
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#local
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#server y local
+STATIC_ROOT = os.getenv('DJANGO_STATIC_ROOT', os.path.join(BASE_DIR, 'staticfiles'))
 
 # STATIC_ROOT = '/app/staticfiles'
 
