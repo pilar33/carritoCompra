@@ -24,16 +24,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'django-insecure-y&&gn^cr4e($^c100m%xpx%dh8=@_8^b9h2v79t0^8)m1gufy('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # usando variables de entorno de clever cloud
 # Configuración de DEBUG
-DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+# DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
-# Configuración de ALLOWED_HOSTS
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+# # Configuración de ALLOWED_HOSTS
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+
+WHITENOISE_MANIFEST_STRICT = False
 
 # Application definition
 
