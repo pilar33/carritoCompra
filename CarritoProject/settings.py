@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-y&&gn^cr4e($^c100m%xpx%dh8=@_8^b9h2v79t0^8)m1gufy(
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
 # Configuración de ALLOWED_HOSTS
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "carritocompra.cleverapps.io").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Application definition
 
@@ -114,10 +114,29 @@ WSGI_APPLICATION = 'CarritoProject.wsgi.application'
 #     }
 # }
 
-# Configuración de la base de datos usando DATABASE_URL del entorno de clever cloud
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+if os.getenv('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    }
+else:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'restauranteryr', 
+        'USER': 'root',
+        'PASSWORD': '',
+        'SERVER': 'localhost',        
+        'PORT': '3306',
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_ALL_TABLES'",
+        # },
+    }
 }
+
+# Configuración de la base de datos usando DATABASE_URL del entorno de clever cloud
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+# }
 
 
 # Password validation
