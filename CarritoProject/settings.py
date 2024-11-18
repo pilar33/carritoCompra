@@ -15,7 +15,7 @@ import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -180,6 +180,10 @@ STATIC_URL = '/static/' # La URL raíz para servir archivos estáticos
 STATICFILES_DIRS = [
     Path(BASE_DIR) / "static",  # Directorio de archivos estáticos del proyecto principal
 ]
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_ROOT = '/app/staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
